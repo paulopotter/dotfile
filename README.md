@@ -1,0 +1,3 @@
+# dotfile
+
+Minhas configurações padrões
