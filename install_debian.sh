@@ -5,6 +5,7 @@ source ./utils.sh
 
 function install_debian(){
     install_package_with "aptitude" zsh
+    install_package_with "brew" zsh-syntax-highlighting
     install_zsh
     config_zsh
 
