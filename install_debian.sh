@@ -6,13 +6,13 @@ source ./utils.sh
 function install_debian(){
     # sudo su # entra em modo super usuario.
 
-    # Update System
+    ### Update System ##
         sudo apt-get update
         sudo apt-get dist-upgrade
 
     install_package_with "apt" aptitude
 
-    ## To install homebrew ###
+    ### To install homebrew ###
         install_package_with "apt" build-essential
         install_package_with "apt" curl
         install_package_with "apt" git
@@ -20,17 +20,20 @@ function install_debian(){
         install_package_with "apt" ruby
         linux_brew
 
-    # Add the option to add repository (add-get-repository)
+    ### Add the option to add repository (add-get-repository) ###
         install_package_with "apt" software-properties-common
         install_package_with "apt" python-software-properties
 
-    # Add repositories
+    ### Add repositories ###
         add_spotify_repository
+
+    ### Update apt-get ###
+      sudo apt-get update
 
 
     install_gnomeshell_extension_manager # gnome extension for terminal
 
-    # ZSH
+    ### ZSH ###
         install_package_with "aptitude" zsh
         install_package_with "brew" zsh-syntax-highlighting
         install_zsh
