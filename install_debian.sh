@@ -4,6 +4,23 @@ source ./configs.sh
 source ./utils.sh
 
 function install_debian(){
+    # sudo su # entra em modo super usuario.
+
+    # Update System
+        sudo apt-get update
+        sudo apt-get dist-upgrade
+
+    install_package_with "apt" aptitude
+
+    ## To install homebrew ###
+    install_package_with "apt" build-essential
+    install_package_with "apt" curl
+    install_package_with "apt" git
+    install_package_with "apt" python-setuptools
+    install_package_with "apt" ruby
+    linux_brew
+
+    # ZSH
     install_package_with "aptitude" zsh
     install_package_with "brew" zsh-syntax-highlighting
     install_zsh
@@ -28,6 +45,12 @@ function config_zsh(){
     ln -sfn ${dotfile_folder}/ohmyzsh/personalizado.zsh-theme .oh-my-zsh/themes/personalizado.zsh-theme
     cd -
 }
+
+function linux_brew(){
+  # http://linuxbrew.sh/
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+}
+
 
 
 install_debian
