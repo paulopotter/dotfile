@@ -89,12 +89,29 @@ fi
 
 ### GIT ###
 alias shortlog='git log --date=short --pretty=format:"[ %C(bold blue)%h%Creset ] - %cd || <%Cgreen%an%Creset> %Cred->%Creset %s"'
-alias gpr='git pull --rebase origin $(current_branch)'
+alias gpr='git pull --rebase -v origin $(current_branch)'
 alias gch='git checkout'
 alias gst='git status'
+alias gdf='git diff'
+alias gitgraph="git log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph"
+alias gtag='git tag --sort version:refname'
+alias gsu='git submodule update'
+alias gb='git branch -avv'
+alias gprs='git push store $(current_branch)'
+alias gpall='git push origin master && git push store master'
+
 
 ### COMMON ###
 alias subl="~/bin/subl -n"
+alias rede="ifconfig en1 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"
+alias la="ls -lah"
+
+
+### To Programming ###
+
+alias findpdb='grep -r "pdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | grep ".py$"'
+alias findipdb='grep -r "ipdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | grep ".py$"'
+alias psaux='ps aux | grep -v grep | grep'
 
 
 export PATH="$PATH:$HOME/.rvm/bin"
