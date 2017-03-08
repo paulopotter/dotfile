@@ -41,6 +41,9 @@ function install_debian(){
 
     install_package_with "apt" spotify-client
 
+    # Sublime text
+        install_package_control
+
 }
 
 function install_zsh(){
@@ -81,4 +84,13 @@ function add_spotify_repository(){
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
     echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 }
+
+function install_package_control(){
+    cd "$HOME/.config/sublime-text-3/Installed Packages"
+    curl "https://raw.githubusercontent.com/wbond/package_control/master/Package%20Control.sublime-settings" > Package\ Control.sublime-settings
+
+    cd -
+}
+
+
 install_debian
