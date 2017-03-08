@@ -2,7 +2,7 @@
 
 function install_package_with() {
   printf "\n"
-  if [[ $(check_installed $1 $2) ]]; then
+  if [[ $(check_not_installed $1 $2) ]]; then
     if [[ $1 == "brew" ]]; then
         echo "Instalando < $2 > com brew..."
         brew install $2
@@ -69,12 +69,12 @@ function git_config(){
   echo 'Configurado!'
 }
 
-function check_installed(){
+function check_not_installed(){
   if [ $1 == "apt" ] || [ $1 == "aptitude" ]; then
     dpkg-query -Wf'${db:Status-abbrev}' "$2" 2>/dev/null | grep -q '^i';
 
   elif [ $1 == "brew" ]; then
-    if [[ $(brew ls --versions $2 | $?) ]]; then
+    if [[ $(brew ls --versions $2 ) ]]; then
       return 0;
     else
       return 1;
