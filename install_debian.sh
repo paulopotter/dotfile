@@ -41,8 +41,23 @@ function install_debian(){
 
     install_package_with "apt" spotify-client
 
-    # Sublime text
-        install_package_control
+    ### Sublime text ###
+       install_package_control
+
+    ### (des)Compactacao de arquivos ###
+        install_package_with "aptitude" unace
+        install_package_with "aptitude" unrar
+        install_package_with "aptitude" zip
+        install_package_with "aptitude" unzip
+        install_package_with "aptitude" p7zip-full
+        install_package_with "aptitude" p7zip-rar
+        install_package_with "aptitude" sharutils
+        install_package_with "aptitude" rar
+        install_package_with "aptitude" uudeview
+        install_package_with "aptitude" mpack
+        install_package_with "aptitude" arj
+        install_package_with "aptitude" cabextract
+        install_package_with "aptitude" file-roller
 
 }
 
