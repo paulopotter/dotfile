@@ -49,16 +49,20 @@ function install_zsh(){
 
 
 function config_zsh(){
-    dotfile_folder=`pwd`
+    if [[ $SHELL != "/usr/bin/zsh" ]]; then
+        dotfile_folder=`pwd`
 
-    chsh -s $(which zsh) # making default
+        chsh -s $(which zsh) # making default
 
-    cd ~
-    ln -sfn ${dotfile_folder}/ohmyzsh/zshrc .zshrc
-    sudo chmod 777 .oh-my-zsh/*
+        cd ~
+        ln -sfn ${dotfile_folder}/ohmyzsh/zshrc .zshrc
+        sudo chmod 777 .oh-my-zsh/*
 
-    ln -sfn ${dotfile_folder}/ohmyzsh/personalizado.zsh-theme .oh-my-zsh/themes/personalizado.zsh-theme
-    cd -
+        ln -sfn ${dotfile_folder}/ohmyzsh/personalizado.zsh-theme .oh-my-zsh/themes/personalizado.zsh-theme
+        cd -
+    else
+        echo "zsh já configurado"
+    fi
 }
 
 function linux_brew(){
