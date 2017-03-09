@@ -4,110 +4,122 @@ source ./configs.sh
 source ./utils.sh
 
 function install_debian(){
-    # sudo su # entra em modo super usuario.
+	# sudo su # entra em modo super usuario.
 
-    ### Update System ##
-        sudo apt-get update
-        sudo apt-get dist-upgrade
+	### Update System ###
+		sudo apt-get update
+		sudo apt-get dist-upgrade
 
-    install_package_with "apt" aptitude
+	install_package_with "apt" aptitude
 
-    ### To install homebrew ###
-        install_package_with "apt" build-essential
-        install_package_with "apt" curl
-        install_package_with "apt" git
-        install_package_with "apt" python-setuptools
-        install_package_with "apt" ruby
-        linux_brew
+	### To install homebrew ###
+		install_package_with "apt" build-essential
+		install_package_with "apt" curl
+		install_package_with "apt" git
+		install_package_with "apt" python-setuptools
+		install_package_with "apt" ruby
+		linux_brew
 
-    ### Add the option to add repository (add-get-repository) ###
-        install_package_with "apt" software-properties-common
-        install_package_with "apt" python-software-properties
+	### Add the option to add repository (add-get-repository) ###
+		install_package_with "apt" software-properties-common
+		install_package_with "apt" python-software-properties
 
-    ### Add repositories ###
-        add_spotify_repository
+	### Add repositories ###
+		add_spotify_repository
 
-    ### Update apt-get ###
-      sudo apt-get update
+	### Update apt-get ###
+			sudo apt-get update
 
+	### ZSH ###
+			install_package_with "aptitude" zsh
+			install_package_with "brew" zsh-syntax-highlighting
+			install_zsh
+			config_zsh
 
-    install_gnomeshell_extension_manager # gnome extension for terminal
+	install_package_with "apt" spotify-client
 
-    ### ZSH ###
-        install_package_with "aptitude" zsh
-        install_package_with "brew" zsh-syntax-highlighting
-        install_zsh
-        config_zsh
+	### (des)Compactacao de arquivos ###
+		install_package_with "aptitude" unace
+		install_package_with "aptitude" unrar
+		install_package_with "aptitude" zip
+		install_package_with "aptitude" unzip
+		install_package_with "aptitude" p7zip-full
+		install_package_with "aptitude" p7zip-rar
+		install_package_with "aptitude" sharutils
+		install_package_with "aptitude" rar
+		install_package_with "aptitude" uudeview
+		install_package_with "aptitude" mpack
+		install_package_with "aptitude" arj
+		install_package_with "aptitude" cabextract
+		install_package_with "aptitude" file-roller
 
-    install_package_with "apt" spotify-client
+	### Config Git ###
+		git_config
 
-    ### Sublime text ###
-       install_package_control
+	### Editors
+		atom_download
 
-    ### (des)Compactacao de arquivos ###
-        install_package_with "aptitude" unace
-        install_package_with "aptitude" unrar
-        install_package_with "aptitude" zip
-        install_package_with "aptitude" unzip
-        install_package_with "aptitude" p7zip-full
-        install_package_with "aptitude" p7zip-rar
-        install_package_with "aptitude" sharutils
-        install_package_with "aptitude" rar
-        install_package_with "aptitude" uudeview
-        install_package_with "aptitude" mpack
-        install_package_with "aptitude" arj
-        install_package_with "aptitude" cabextract
-        install_package_with "aptitude" file-roller
+	### Sublime text ###
+		install_package_control
 
 }
 
 function install_zsh(){
-    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+		sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 
 function config_zsh(){
-    if [[ $SHELL != "/usr/bin/zsh" ]]; then
-        dotfile_folder=`pwd`
+	if [[ $SHELL != "/usr/bin/zsh" ]]; then
 
-        chsh -s $(which zsh) # making default
+		dotfile_folder=`pwd`
 
-        cd ~
-        ln -sfn ${dotfile_folder}/ohmyzsh/zshrc .zshrc
-        sudo chmod 777 .oh-my-zsh/*
+		sudo chsh -s $(which zsh) # making default
 
-        ln -sfn ${dotfile_folder}/ohmyzsh/personalizado.zsh-theme .oh-my-zsh/themes/personalizado.zsh-theme
-        cd -
-    else
-        echo "zsh já configurado"
-    fi
+		cd ~
+		ln -sfn ${dotfile_folder}/ohmyzsh/zshrc .zshrc
+		sudo chmod 777 .oh-my-zsh/*
+
+		ln -sfn ${dotfile_folder}/ohmyzsh/personalizado.zsh-theme .oh-my-zsh/themes/personalizado.zsh-theme
+		cd -
+	else
+		echo "zsh já configurado"
+fi
 }
 
 function linux_brew(){
-  # http://linuxbrew.sh/
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+	# http://linuxbrew.sh/
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+	echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >>~/.bash_profile
+	export PATH="$HOME/.linuxbrew/bin:$PATH"
+	export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 }
 
 
 function install_gnomeshell_extension_manager(){
-  # https://fedoramagazine.org/install-gnome-shell-extension/
-  sudo wget -O /usr/local/bin/gnomeshell-extension-manage "https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage"
-  sudo chmod +x /usr/local/bin/gnomeshell-extension-manage
+	# https://fedoramagazine.org/install-gnome-shell-extension/
+	sudo wget -O /usr/local/bin/gnomeshell-extension-manage "https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage"
+	sudo chmod +x /usr/local/bin/gnomeshell-extension-manage
 }
 
 function add_spotify_repository(){
-  if [[ ! $(check_installed "apt" "spotify-client") ]] ; then
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-    echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-  fi
+	if [[ ! $(check_installed "apt" "spotify-client") ]] ; then
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+		echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+	fi
 }
 
 function install_package_control(){
-    cd "$HOME/.config/sublime-text-3/Installed Packages"
-    curl "https://raw.githubusercontent.com/wbond/package_control/master/Package%20Control.sublime-settings" > Package\ Control.sublime-settings
-
-    cd -
+	cd "$HOME/.config/sublime-text-3/Installed Packages"
+	curl "https://raw.githubusercontent.com/wbond/package_control/master/Package%20Control.sublime-settings" > Package\ Control.sublime-settings
+	cd -
 }
 
+function atom_download(){
+	wget "https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb" -O atom.deb
+	install_package_with "dpkg" ./atom.deb
+	rm atom.deb
+}
 
 install_debian
