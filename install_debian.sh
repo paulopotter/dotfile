@@ -36,6 +36,10 @@ function install_debian(){
 			install_zsh
 			config_zsh
 
+	### to use pbcopy/pbpaste ###
+		install_package_with "aptitude" xclip
+		pbcopy_alias
+
 	install_package_with "apt" spotify-client
 
 	### (des)Compactacao de arquivos ###
@@ -115,6 +119,14 @@ function atom_download(){
 	wget "https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb" -O atom.deb
 	install_package_with "dpkg" ./atom.deb
 	rm atom.deb
+}
+
+function pbcopy_alias(){
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+
+	echo "alias pbcopy='xclip -selection clipboard'" >>~/.bash_profile
+	echo "alias pbpaste='xclip -selection clipboard -o'" >>~/.bash_profile
 }
 
 install_debian
