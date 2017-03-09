@@ -59,7 +59,7 @@ function generate_ssh_key() {
         echo "Generating SSH key"
         ssh-keygen -t rsa -N "" -f "$HOME/.ssh/id_rsa" -C "$EMAIL"
         # Copiar o conteudo do arquivo
-        # cat ~/.ssh/id_rsa.pub
+        pbcopy < ~/.ssh/id_rsa.pub 
     fi
 }
 
