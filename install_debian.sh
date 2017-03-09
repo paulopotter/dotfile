@@ -4,7 +4,7 @@ source ./configs.sh
 source ./utils.sh
 
 function install_debian(){
-	# sudo su # entra em modo super usuario.
+	## sudo su # entra em modo super usuario.
 
 	### Update System ###
 		sudo apt-get update
@@ -58,6 +58,7 @@ function install_debian(){
 
 	### Editors
 		atom_download
+		install_package_with "aptitude" vim
 
 	### Sublime text ###
 		install_package_control
@@ -65,12 +66,13 @@ function install_debian(){
 }
 
 function install_zsh(){
+	if [[ $SHELL != $(which zsh) ]]; then
 		sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	fi
 }
 
-
 function config_zsh(){
-	if [[ $SHELL != "/usr/bin/zsh" ]]; then
+	if [[ $SHELL != $(which zsh) ]]; then
 
 		dotfile_folder=`pwd`
 
@@ -84,23 +86,16 @@ function config_zsh(){
 		cd -
 	else
 		echo "zsh já configurado"
-fi
+	fi
 }
 
 function linux_brew(){
-	# http://linuxbrew.sh/
+	## http://linuxbrew.sh/
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 	echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >>~/.bash_profile
 	export PATH="$HOME/.linuxbrew/bin:$PATH"
 	export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 	export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-}
-
-
-function install_gnomeshell_extension_manager(){
-	# https://fedoramagazine.org/install-gnome-shell-extension/
-	sudo wget -O /usr/local/bin/gnomeshell-extension-manage "https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage"
-	sudo chmod +x /usr/local/bin/gnomeshell-extension-manage
 }
 
 function add_spotify_repository(){
