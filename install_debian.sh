@@ -3,6 +3,8 @@
 source ./configs.sh
 source ./utils.sh
 
+install_debian
+
 function install_debian(){
 	## sudo su # entra em modo super usuario.
 
@@ -26,6 +28,7 @@ function install_debian(){
 
 	### Add repositories ###
 		add_spotify_repository
+		add_opera_repository
 
 	### Update apt-get ###
 			sudo apt-get update
@@ -129,4 +132,9 @@ function pbcopy_alias(){
 	echo "alias pbpaste='xclip -selection clipboard -o'" >>~/.bash_profile
 }
 
-install_debian
+function install_opera(){
+		## http://download4.operacdn.com/pub/opera/desktop/43.0.2442.1144/linux/opera-stable_43.0.2442.1144_amd64.deb
+		wget -r -l1 -nH --cut-dirs=5  --no-parent -e robots=off -A '*_amd64.deb' http://deb.opera.com/opera/pool/non-free/o/opera-stable/
+		install_package_with "dpkg" ./opera*_amd64.deb
+		rm opera*_amd64.deb
+}
