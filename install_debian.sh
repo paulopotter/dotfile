@@ -64,7 +64,7 @@ function install_debian(){
 	### Editors
 		atom_download_and_install
 		install_package_with "aptitude" vim
-		install_package_with "aptitude" sublime-text-installer
+		install_package_with "aptitude" sublime-text
 
 	### Sublime text ###
 		install_package_control
@@ -115,6 +115,7 @@ function add_spotify_repository(){
 }
 
 function install_package_control(){
+	# cd "/opt/sublime_text/Installed Packages"
 	cd "$HOME/.config/sublime-text-3/Installed Packages"
 	curl "https://raw.githubusercontent.com/wbond/package_control/master/Package%20Control.sublime-settings" > Package\ Control.sublime-settings
 	cd -
@@ -152,6 +153,7 @@ function add_sublime_repository() {
 		sudo add-apt-repository ppa:webupd8team/sublime-text-3
 	fi
 }
+
 
 
 install_debian
