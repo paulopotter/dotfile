@@ -3,8 +3,6 @@
 source ./configs.sh
 source ./utils.sh
 
-install_debian
-
 function install_debian(){
 	## sudo su # entra em modo super usuario.
 
@@ -64,11 +62,13 @@ function install_debian(){
 		git_config
 
 	### Editors
-		atom_download
+		atom_download_and_install
 		install_package_with "aptitude" vim
 
 	### Sublime text ###
 		install_package_control
+
+	rambox_download_and_install
 
 }
 
@@ -118,18 +118,24 @@ function install_package_control(){
 	cd -
 }
 
-function atom_download(){
+function atom_download_and_install(){
 	wget "https://github.com/atom/atom/releases/download/v1.11.2/atom-amd64.deb" -O atom.deb
 	install_package_with "dpkg" ./atom.deb
 	rm atom.deb
+}
+
+function rambox_download_and_install(){
+  wget "https://getrambox.herokuapp.com/download/linux_64?filetype=deb" -O rambox.deb
+	install_package_with "dpkg" ./rambox.deb
+	rm rambox.deb
 }
 
 function pbcopy_alias(){
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
 
-	echo "alias pbcopy='xclip -selection clipboard'" >>~/.bash_profile
-	echo "alias pbpaste='xclip -selection clipboard -o'" >>~/.bash_profile
+	echo "alias pbcopy='xclip -selection clipboard'" >>~/.zshrc
+	echo "alias pbpaste='xclip -selection clipboard -o'" >>~/.zshrc
 }
 
 function install_opera(){
@@ -138,3 +144,8 @@ function install_opera(){
 		install_package_with "dpkg" ./opera*_amd64.deb
 		rm opera*_amd64.deb
 }
+
+
+
+
+install_debian
