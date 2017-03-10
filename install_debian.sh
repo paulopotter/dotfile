@@ -26,7 +26,7 @@ function install_debian(){
 
 	### Add repositories ###
 		add_spotify_repository
-		add_opera_repository
+		add_sublime_repository
 
 	### Update apt-get ###
 			sudo apt-get update
@@ -64,10 +64,12 @@ function install_debian(){
 	### Editors
 		atom_download_and_install
 		install_package_with "aptitude" vim
+		install_package_with "aptitude" sublime-text-installer
 
 	### Sublime text ###
 		install_package_control
 
+	install_opera
 	rambox_download_and_install
 
 }
@@ -145,7 +147,11 @@ function install_opera(){
 		rm opera*_amd64.deb
 }
 
-
+function add_sublime_repository() {
+	if [[ ! $(check_installed "apt" "sublime-text") ]] ; then
+		sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	fi
+}
 
 
 install_debian
