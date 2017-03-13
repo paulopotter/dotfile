@@ -24,6 +24,13 @@ function install_debian(){
 		install_package_with "apt" software-properties-common
 		install_package_with "apt" python-software-properties
 
+	### Install Pip and Virtualenv ###
+		install_package_with "apt" python-pip
+		install_package_with "apt" python-dev
+		install_package_with "apt" build-essential
+		install_package_with "apt" virtualenv
+		install_package_with "apt" virtualenvwrapper
+
 	### Add repositories ###
 		add_spotify_repository
 		add_sublime_repository
