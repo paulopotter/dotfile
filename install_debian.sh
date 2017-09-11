@@ -34,6 +34,7 @@ function install_debian(){
 	### Add repositories ###
 		add_spotify_repository
 		add_sublime_repository
+		add_jdownloader_repository
 
 	### Update apt-get ###
 			sudo apt-get update
@@ -78,6 +79,7 @@ function install_debian(){
 
 	install_opera
 	rambox_download_and_install
+	install_package_with "apt" "jdownloader-installer"
 
 }
 
@@ -161,6 +163,11 @@ function add_sublime_repository() {
 	fi
 }
 
+function add_jdownloader_repository(){
+	if [[ ! $(check_installed "apt" "jdownloader") ]] ; then
+		sudo apt-add-repository ppa:jd-team/jdownloader
+	fi
+}
 
 
 install_debian
