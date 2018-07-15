@@ -45,7 +45,6 @@ alias gtag='git tag --sort version:refname'
 alias gsu='git submodule update'
 alias gb='git branch -avv'
 alias gprs='git push store $(current_branch)'
-alias gpall='git push origin master && git push store master'
 
 
 ### COMMON ###
