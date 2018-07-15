@@ -8,13 +8,12 @@ Antes de usar altere o arquivo **configs.sh**
 - Abra o terminal e cole: `git clone https://github.com/paulopotter/dotfile.git`
 - `cd dotfile`
 - Altere o arquivo **configs.sh**
-- `./install_debian`
+- `./install_osx`
 
 
 ## O que será instalado?
 
 - Editores:
-  - Atom
   - Sublime Text
   - Vim
 
@@ -27,7 +26,6 @@ Antes de usar altere o arquivo **configs.sh**
 - Outros:
   - Rambox _(Whatsapp. telegram, mails, etc)_
   - zsh _(Personaliza o terminal)_
-  - linux brew _(homebrew para linux)_
 
 ### Notas:
 

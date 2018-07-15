@@ -2,6 +2,7 @@
 source ./utils.sh
 
 function install_osX(){
+ 
   install_homebrew
   echo 'Executando brew doctor...'
   brew doctor
@@ -31,12 +32,18 @@ function install_osX(){
   install_package_with "brew" zsh
   install_package_with "brew" zsh-completions
 
-   # Editores
-  install_package_with "brew" editorconfig
-  # # Sublime
+  # Editores
+  ### Sublime
   install_package_with "cask" sublime-text
-  install_package_with "cask" macdown
   install_package_control
+  
+  install_package_with "brew" editorconfig
+  install_package_with "cask" macdown
+
+  # Browsers
+  install_package_with "cask" google-chrome
+  install_package_with "cask" opera
+
 
   # Language
   ## Python
@@ -45,34 +52,32 @@ function install_osX(){
   install_python_package virtualenvwrapper
 
   echo 'Fim dos pacotes de desenvolvimento'
+
+
   echo 'Configurando stack desenvolvimento'
 
   install_ohmyzsh
-
   install_package_with "brew" ack
   install_package_with "brew" the_silver_searcher
+  install_package_with "brew" zsh-syntax-highlighting
 
   echo 'Fim da configuracao stack desenvolvimento'
-  echo 'Instalando firulas ...'
+
+
+  echo 'Instalando outros Programas ...'
+
+  # outros Programas
 
   install_package_with "cask" 1password
   install_package_with "cask" dropbox
+  install_package_with "cask" spotify
+  install_package_with "cask" spectacle # Resize window
+  install_package_with "cask" caffeine  # Don`t sleep
+  install_package_with "cask" rambox    # Msg
 
-  install_package_with "brew" zsh-syntax-highlighting
+  echo 'Fim das outros Programas'
 
-  # Spotify
-  install_package_with "cask"  spotify
 
-  # Resize window
-  install_package_with "cask" spectacle
-
-  # Don`t sleep
-  install_package_with "cask" caffeine
-
-  # Messager
-  install_package_with "cask" rambox
-
-  echo 'Fim das firulas'
   echo 'Fim da instalacao'
 }
 
@@ -102,5 +107,15 @@ function install_ohmyzsh(){
   chsh -s /usr/local/bin/zsh
   cd -
 }
+
+function git_ignore_global(){
+  curl 'https://www.gitignore.io/api/macos,sublimetext,vim,python' --output ~/.gitignore_global
+  git config --global core.excludesfile ~/.gitignore_global
+}
+
+function update_zshrc(){
+  ln -sfn ./ohmyzsh/zshrc ~/.zshrc 
+}
+
 
 install_osX
