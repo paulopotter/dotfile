@@ -23,21 +23,6 @@ function install_package_with() {
         sudo pip install -U $2
         echo "< $2 > instalado/atualizado"
 
-    elif [[ $1 == "apt" ]]; then
-        echo "Instalando < $2 > com apt-get..."
-        sudo apt-get install $2 -y
-        echo "< $2 > instalado"
-
-    elif [[ $1 == "aptitude" ]]; then
-        echo "Instalando < $2 > com aptitude..."
-        sudo aptitude install $2 -y
-        echo "< $2 > instalado"
-
-    elif [[ $1 == "dpkg" ]]; then
-        echo "Instalando < $2 > com dpkg..."
-        sudo dpkg -i $2
-        echo "< $2 > instalado"
-
     elif [[ $1 == "gem" ]]; then
         echo "Instalando < $2 > com gem..."
         sudo gem install $1
@@ -67,6 +52,7 @@ function git_config(){
   echo 'Configurando user e email do git'
   git config --global user.name "$NAME"
   git config --global user.email "$EMAIL"
+  git config --global user.editor "$EDITOR"
   echo 'Configurado!'
 }
 

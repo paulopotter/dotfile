@@ -31,6 +31,7 @@ function install_osX(){
   # OH My Zsh
   install_package_with "brew" zsh
   install_package_with "brew" zsh-completions
+  update_zshrc_config
 
   # Editores
   ### Sublime
@@ -113,8 +114,12 @@ function git_ignore_global(){
   git config --global core.excludesfile ~/.gitignore_global
 }
 
-function update_zshrc(){
+function update_zshrc_config(){
   ln -sfn ./ohmyzsh/zshrc ~/.zshrc 
+}
+
+function install_package_control(){
+  git clone git://github.com/wbond/sublime_package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Package\ Control
 }
 
 
