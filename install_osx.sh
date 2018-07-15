@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+source ./utils.sh
+
+function install_osX(){
+  install_homebrew
+  echo 'Executando brew doctor...'
+  brew doctor
+  echo 'Brew doctor executado'
+  echo 'Brew update'
+  brew update
+  echo 'Brew update executado'
+
+  echo 'Instalando Pacotes para desenvolvimento...'
+
+
+  install_package_with "brew" wget
+  install_package_with "brew" openssl
+  xcode-select --install
+  install_package_with "brew" libxml2
+
+   # GIT
+  install_package_with "brew" git
+  install_package_with "brew" git-fresh
+  install_package_with "brew" tig
+  git_config
+
+  # iterm
+  install_package_with "cask" iterm2
+
+  # OH My Zsh
+  install_package_with "brew" zsh
+  install_package_with "brew" zsh-completions
+
+   # Editores
+  install_package_with "brew" editorconfig
+  # # Sublime
+  install_package_with "cask" sublime-text
+  install_package_with "cask" macdown
+  install_package_control
+
+  # Language
+  ## Python
+  install_python_package pip
+  install_python_package setuptools
+  install_python_package virtualenvwrapper
+
+  echo 'Fim dos pacotes de desenvolvimento'
+  echo 'Configurando stack desenvolvimento'
+
+  install_ohmyzsh
+
+  install_package_with "brew" ack
+  install_package_with "brew" the_silver_searcher
+
+  echo 'Fim da configuracao stack desenvolvimento'
+  echo 'Instalando firulas ...'
+
+  install_package_with "cask" 1password
+  install_package_with "cask" dropbox
+
+  install_package_with "brew" zsh-syntax-highlighting
+
+  # Spotify
+  install_package_with "cask"  spotify
+
+  # Resize window
+  install_package_with "cask" spectacle
+
+  # Don`t sleep
+  install_package_with "cask" caffeine
+
+  # Messager
+  install_package_with "cask" rambox
+
+  echo 'Fim das firulas'
+  echo 'Fim da instalacao'
+}
+
+function install_homebrew(){
+  echo "Instalando homebrew.."
+
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  echo "Homebrew instalado com sucesso"
+}
+
+function install_package_control(){
+  cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+  git clone git://github.com/wbond/sublime_package_control.git Package\ Control
+  cd -
+}
+
+function install_python_package(){
+  echo "Instalando/Atualizando o pacote python < $1 >..."
+  sudo pip install -U $1
+  echo "Pacote python instalado"
+}
+
+function install_ohmyzsh(){
+  cd ~
+  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  chsh -s /usr/local/bin/zsh
+  cd -
+}
+
+install_osX
