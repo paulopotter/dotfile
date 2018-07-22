@@ -115,7 +115,8 @@ function git_ignore_global(){
 }
 
 function update_zshrc_config(){
-  ln -sfn ./ohmyzsh/zshrc ~/.zshrc 
+  FOLDER=$(pwd)
+  ln -sfn "$FOLDER/ohmyzsh/zshrc" ~/.zshrc 
 }
 
 function install_package_control(){
