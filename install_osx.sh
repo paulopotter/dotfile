@@ -2,7 +2,7 @@
 source ./utils.sh
 
 function install_osX(){
- 
+
   install_homebrew
   echo 'Executando brew doctor...'
   brew doctor
@@ -18,6 +18,7 @@ function install_osX(){
   install_package_with "brew" openssl
   xcode-select --install
   install_package_with "brew" libxml2
+  install_package_with "brew" jq
 
    # GIT
   install_package_with "brew" git
@@ -32,12 +33,13 @@ function install_osX(){
   install_package_with "brew" zsh
   install_package_with "brew" zsh-completions
   update_zshrc_config
+  install_zsh_plugins
 
   # Editores
   ### Sublime
-  install_package_with "cask" sublime-text
-  install_package_control
-  
+  # install_package_with "cask" sublime-text
+  # install_package_control
+
   install_package_with "brew" editorconfig
   install_package_with "cask" macdown
 
@@ -51,6 +53,8 @@ function install_osX(){
   install_python_package pip
   install_python_package setuptools
   install_python_package virtualenvwrapper
+
+  wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
 
   echo 'Fim dos pacotes de desenvolvimento'
 
@@ -116,11 +120,29 @@ function git_ignore_global(){
 
 function update_zshrc_config(){
   FOLDER=$(pwd)
-  ln -sfn "$FOLDER/ohmyzsh/zshrc" ~/.zshrc 
+  ln -sfn "$FOLDER/ohmyzsh/zshrc" ~/.zshrc
 }
 
 function install_package_control(){
   git clone git://github.com/wbond/sublime_package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Package\ Control
+}
+
+function install_zsh_plugins(){
+  ZSH_PLUGIN_FOLDER=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
+
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_FOLDER/zsh-autosuggestions
+
+  mkdir $ZSH_PLUGIN_FOLDER/yarn-autocompletions
+  curl -SL https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v1.2.0/yarn-autocompletions_v1.2.0_macos.zip | tar -xf - -C $ZSH_PLUGIN_FOLDER/yarn-autocompletions
+
+  git clone https://github.com/djui/alias-tips.git $ZSH_PLUGIN_FOLDER/alias-tips
+
+  git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_PLUGIN_FOLDER/autoupdate
+
+  git clone https://github.com/ltj/gitgo.git $ZSH_PLUGIN_FOLDER/gitgo
+
+  git clone https://github.com/lukechilds/zsh-nvm $ZSH_PLUGIN_FOLDER/zsh-nvm
+
 }
 
 
