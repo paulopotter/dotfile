@@ -54,7 +54,8 @@ function install_osX(){
   install_python_package setuptools
   install_python_package virtualenvwrapper
 
-  wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+  install_nvm
+  install_rvm
 
   echo 'Fim dos pacotes de desenvolvimento'
 
@@ -79,6 +80,7 @@ function install_osX(){
   install_package_with "cask" spectacle # Resize window
   install_package_with "cask" caffeine  # Don`t sleep
   install_package_with "cask" rambox    # Msg
+  install_package_with "cask" captin    # caps lock mensage
 
   echo 'Fim das outros Programas'
 
@@ -142,6 +144,18 @@ function install_zsh_plugins(){
   git clone https://github.com/ltj/gitgo.git $ZSH_PLUGIN_FOLDER/gitgo
 
   git clone https://github.com/lukechilds/zsh-nvm $ZSH_PLUGIN_FOLDER/zsh-nvm
+
+}
+
+function install_nvm(){
+  wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+}
+
+function install_rvm(){
+  curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+  rvm get stable --autolibs=enable --auto-dotfiles
+  rvm install 2.1.5
+  rvm use 2.1.5 --default
 
 }
 
