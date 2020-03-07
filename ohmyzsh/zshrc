@@ -56,7 +56,6 @@ alias gitgraph="git log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --g
 alias gtag='git tag --sort version:refname'
 alias gsu='git submodule update'
 alias gb='git branch -avv'
-alias gprs='git push store $(current_branch)'
 
 
 ### COMMON ###

@@ -36,9 +36,7 @@ function install_osX(){
   install_zsh_plugins
 
   # Editores
-  ### Sublime
-  # install_package_with "cask" sublime-text
-  # install_package_control
+  install_package_with "cask" visual-studio-code
 
   install_package_with "brew" editorconfig
   install_package_with "cask" macdown
@@ -54,7 +52,10 @@ function install_osX(){
   install_python_package setuptools
   install_python_package virtualenvwrapper
 
+  ## Node
   install_nvm
+
+  ## Ruby
   install_rvm
 
   echo 'Fim dos pacotes de desenvolvimento'
@@ -75,12 +76,21 @@ function install_osX(){
   # outros Programas
 
   install_package_with "cask" 1password
-  install_package_with "cask" dropbox
-  install_package_with "cask" spotify
-  install_package_with "cask" spectacle # Resize window
+  install_package_with "cask" authy
   install_package_with "cask" caffeine  # Don`t sleep
-  install_package_with "cask" rambox    # Msg
   install_package_with "cask" captin    # caps lock mensage
+  install_package_with "cask" dropbox
+  install_package_with "cask" google-backup-and-sync
+  install_package_with "cask" slack
+  install_package_with "cask" spectacle # Resize window
+  install_package_with "cask" spotify
+  install_package_with "cask" spotify-notifications
+  install_package_with "cask" p7zip
+  install_package_with "cask" tree
+  install_package_with "cask" unrar
+  install_package_with "cask" yarn
+  install_package_with "cask" vlc
+  install_package_with "cask" node
 
   echo 'Fim das outros Programas'
 

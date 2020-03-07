@@ -14,17 +14,19 @@ Antes de usar altere o arquivo **configs.sh**
 ## O que será instalado?
 
 - Editores:
-  - Sublime Text
+  - Visual Studio Code
   - Vim
 
 - Navegadores:
   - Opera
+  - Google Chrome
 
 - Audio/Video:
   - Spotify
+  - Vlc
 
 - Outros:
-  - Rambox _(Whatsapp. telegram, mails, etc)_
+  - Slack
   - zsh _(Personaliza o terminal)_
 
 ### Notas:
