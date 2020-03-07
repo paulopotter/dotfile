@@ -23,11 +23,19 @@ Antes de usar altere o arquivo **configs.sh**
 
 - Audio/Video:
   - Spotify
+    - Spotify Notifications
   - Vlc
 
 - Outros:
   - Slack
   - zsh _(Personaliza o terminal)_
+  - Spectacle _resize window_
+  - google-backup-and-sync _google drive_
+  - dropbox
+  - caffeine _don`t sleep screen_
+  - captin _notify when caps lock change_
+  - 1password
+  - authy
 
 ### Notas:
 
