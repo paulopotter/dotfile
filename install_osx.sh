@@ -73,6 +73,8 @@ function install_osX(){
   install_package_with "cask" p7zip
   install_package_with "cask" tree
   install_package_with "cask" unrar
+  brew tap tsuru/homebrew-tsuru
+  install_package_with "brew" tsuru
 
   echo '::: Miscelaneous :::'
 

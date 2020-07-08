@@ -59,7 +59,7 @@ alias gb='git branch -avv'
 
 
 ### COMMON ###
-alias rede="ifconfig en1 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"
+alias rede="ifconfig en0 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"
 alias la="ls -lah"
 alias descompacta='unrar e'
 alias sizeOffFolder='du -sh'
@@ -69,6 +69,16 @@ alias sizeOffFolder='du -sh'
 alias findpdb='grep -r "pdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | grep ".py$"'
 alias findipdb='grep -r "ipdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | grep ".py$"'
 alias psaux='ps aux | grep -v grep | grep'
+
+
+function bump_version() {
+  yarn version --new-version $1 --no-commit-hooks --no-git-tag-version
+  git add package.json
+  git commit -m 'chore(package): bump version'
+}
+
+
+
 export PATH="/usr/local/sbin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"

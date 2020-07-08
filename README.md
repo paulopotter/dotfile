@@ -27,6 +27,7 @@ Antes de usar altere o arquivo **configs.sh**
   - Vlc
 
 - Outros:
+  - [Tsuru](http://tsuru.io)
   - Slack
   - zsh _(Personaliza o terminal)_
   - Spectacle _resize window_
