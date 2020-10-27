@@ -37,6 +37,10 @@ Antes de usar altere o arquivo **configs.sh**
   - captin _notify when caps lock change_
   - 1password
   - authy
+  - Microsoft Teams
+  - beardedspice _workarround key mapping to spotify_
+  - surfshark _best vpn_
+  - ntfs-3g
 
 ### Notas:
 

@@ -96,6 +96,10 @@ function install_osX(){
   install_package_with "cask" google-backup-and-sync
   install_package_with "cask" slack
   install_package_with "cask" spectacle # Resize window
+  install_package_with "cask" microsoft-teams
+  install_package_with "cask" beardedspice
+  install_package_with "cask" surfshark
+  install_package_with "cask" ntfs-3g # drivers to read NTFS
 
   echo '::: Finish Miscelaneous :::'
 

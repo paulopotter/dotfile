@@ -70,3 +70,11 @@ function install_rvm(){
   rvm use 2.1.5 --default
 
 }
+
+function download_tizen_studio(){
+  curl -Lo ~/Downloads/tizen3.7_brazil.dmg http://brazil.sdk-dl.tizen.org/web-ide_Tizen_Studio_3.7_brazil_macos-64.dmg
+}
+
+function download_webos_ide(){
+  curl -Lo ~/Downloads/webos.dmg https://gfts.lge.com/fts/gftsFilePathDownload.lge?key=dlRF00014326&hash=i3L0T9eep6uPX1DQ&mtime=1582617620000
+}
