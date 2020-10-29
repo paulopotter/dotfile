@@ -23,7 +23,12 @@ plugins=(
   autoupdate
   alias-tips
   gitgo
+  timer
+  python
+  osx
+  nvm
   yarn-autocompletions
+  zsh-navigation-tools
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-nvm
@@ -35,6 +40,7 @@ DISABLE_UPDATE_PROMPT="true"
 SPACESHIP_DIR_TRUNC_REPO=False
 
 source $ZSH/oh-my-zsh.sh
+source "/Users/paulovitoroliveira/.config/znt/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh"
 
 if [ -e "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
     source /usr/local/bin/virtualenvwrapper_lazy.sh
@@ -76,7 +82,6 @@ function bump_version() {
   git add package.json
   git commit -m 'chore(package): bump version'
 }
-
 
 
 export PATH="/usr/local/sbin:$PATH"
