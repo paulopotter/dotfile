@@ -19,20 +19,22 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-  git
-  autoupdate
   alias-tips
+  autoupdate
+  git
   gitgo
-  timer
-  python
-  osx
   nvm
+  osx
+  python
+  timer
   yarn-autocompletions
-  zsh-navigation-tools
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-navigation-tools
   zsh-nvm
+  zsh-syntax-highlighting
 )
+autoload -U compinit && compinit
+
 export NVM_AUTO_USE=true
 # Auto Upgrage
 DISABLE_UPDATE_PROMPT="true"
@@ -40,7 +42,7 @@ DISABLE_UPDATE_PROMPT="true"
 SPACESHIP_DIR_TRUNC_REPO=False
 
 source $ZSH/oh-my-zsh.sh
-source "/Users/paulovitoroliveira/.config/znt/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh"
+source "~/.config/znt/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh"
 
 if [ -e "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
     source /usr/local/bin/virtualenvwrapper_lazy.sh
