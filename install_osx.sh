@@ -40,6 +40,7 @@ function install_osX(){
   update_zshrc_config
   install_zsh_plugins
   install_ohmyzsh
+  # install zsh-navigation-tools // Zsh plugins
 
   echo ':: Editors ::'
   install_package_with "cask" visual-studio-code
@@ -55,8 +56,8 @@ function install_osX(){
   install_python_package virtualenvwrapper
 
   echo ': Node :'
-  install_package_with "cask" node
-  install_package_with "cask" yarn
+  install_package_with "brew" node
+  install_package_with "brew" yarn
   install_nvm
 
   echo ': Ruby :'
@@ -70,9 +71,9 @@ function install_osX(){
   install_package_with "brew" ack
   install_package_with "brew" the_silver_searcher
   install_package_with "brew" zsh-syntax-highlighting
-  install_package_with "cask" p7zip
-  install_package_with "cask" tree
-  install_package_with "cask" unrar
+  install_package_with "brew" p7zip
+  install_package_with "brew" tree
+  install_package_with "brew" unrar
   brew tap tsuru/homebrew-tsuru
   install_package_with "brew" tsuru
 
@@ -84,22 +85,26 @@ function install_osX(){
 
   echo ':: Audio/Video ::'
   install_package_with "cask" spotify
-  install_package_with "cask" spotify-notifications
   install_package_with "cask" vlc
 
   echo ':: Others ::'
-  install_package_with "cask" 1password # Password Manager
+  install_package_with "cask" 1password6 # Password Manager
   install_package_with "cask" authy     # Authenticator
   install_package_with "cask" caffeine  # Don`t sleep
   install_package_with "cask" captin    # caps lock mensage
   install_package_with "cask" dropbox
-  install_package_with "cask" google-backup-and-sync
+  install_package_with "cask" virtualbox
+  install_package_with "cask" google-backup-and-sync # Google drive
   install_package_with "cask" slack
-  install_package_with "cask" spectacle # Resize window
   install_package_with "cask" microsoft-teams
-  install_package_with "cask" beardedspice
-  install_package_with "cask" surfshark
-  install_package_with "cask" ntfs-3g # drivers to read NTFS
+  install_package_with "cask" spectacle # Resize window
+  install_package_with "cask" beardedspice # mac adapter to use media key to control spotify
+  install_package_with "cask" surfshark # VPN
+  install_package_with "cask" osxfuse # drivers to read NTFS
+  install_package_with "brew" ntfs-3g # drivers to read NTFS
+
+  brew tap homebrew/cask-fonts
+  install_package_with "brew" font-fira-code # font with ligatures
 
   echo '::: Finish Miscelaneous :::'
 
