@@ -64,7 +64,7 @@ function check_installed(){
         echo 1
     fi
   elif [ $1 == "brew" ]; then
-    if [[ $(brew ls --versions $2 ) ]]; then
+    if [[ $(brew list --versions $2 ) ]]; then
       echo 0;
     else
       echo 1;
