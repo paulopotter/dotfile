@@ -4,14 +4,7 @@ function install_homebrew(){
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-
   echo "Homebrew instalado com sucesso"
-}
-
-function install_package_control(){
-  cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
-  git clone git://github.com/wbond/sublime_package_control.git Package\ Control
-  cd -
 }
 
 function install_python_package(){
@@ -37,10 +30,6 @@ function update_zshrc_config(){
   ln -sfn "$FOLDER/ohmyzsh/zshrc" ~/.zshrc
 }
 
-function install_package_control(){
-  git clone git://github.com/wbond/sublime_package_control.git ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Package\ Control
-}
-
 function install_zsh_plugins(){
   ZSH_PLUGIN_FOLDER=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
 
@@ -51,11 +40,25 @@ function install_zsh_plugins(){
 
   git clone https://github.com/djui/alias-tips.git $ZSH_PLUGIN_FOLDER/alias-tips
 
+  git clone https://github.com/gretzky/auto-color-ls $ZSH_PLUGIN_FOLDER/auto-color-ls
+
   git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_PLUGIN_FOLDER/autoupdate
 
   git clone https://github.com/ltj/gitgo.git $ZSH_PLUGIN_FOLDER/gitgo
 
   git clone https://github.com/lukechilds/zsh-nvm $ZSH_PLUGIN_FOLDER/zsh-nvm
+
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_FOLDER/zsh-syntax-highlighting
+
+  # or
+  # brew install zsh-syntax-highlighting
+  # echo 'source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+
+  git clone https://github.com/zdharma/fast-syntax-highlighting.git $ZSH_PLUGIN_FOLDER/fast-syntax-highlighting
+
+  git clone https://github.com/shiro-saber/node-env-installer.git $ZSH_PLUGIN_FOLDER/node-env-installer
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/psprint/zsh-navigation-tools/master/doc/install.sh)"
 
 }
 
