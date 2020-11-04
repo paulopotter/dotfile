@@ -38,6 +38,9 @@ plugins=(
 autoload -U compinit && compinit
 
 export NVM_AUTO_USE=true
+# Auto upgdate plugins everyday
+export UPDATE_ZSH_DAYS=1
+
 # Auto Upgrage
 DISABLE_UPDATE_PROMPT="true"
 
@@ -52,7 +55,6 @@ source "$HOME/.config/znt/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh"
 if [ -e "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
     source /usr/local/bin/virtualenvwrapper_lazy.sh
 fi
-
 
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
@@ -69,7 +71,6 @@ alias gitgraph="git log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --g
 alias gtag='git tag --sort version:refname'
 alias gsu='git submodule update'
 alias gb='git branch -avv'
-
 
 ### COMMON ###
 alias rede="ifconfig en0 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"

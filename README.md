@@ -5,7 +5,8 @@ Antes de usar altere o arquivo **configs.sh**
 
 ## Como usar:
 
-- Abra o terminal e cole: `git clone https://github.com/paulopotter/dotfile.git`
+- Abra o terminal e cole: `curl -L https://github.com/paulopotter/dotfile/archive/master.zip`
+- Descompacte o zip
 - `cd dotfile`
 - Altere o arquivo **configs.sh**
 - `./install_osx`
@@ -23,30 +24,28 @@ Antes de usar altere o arquivo **configs.sh**
 
 - Audio/Video:
   - Spotify
-    - Spotify Notifications
   - Vlc
 
 - Outros:
   - [Tsuru](http://tsuru.io)
-  - Slack
-  - zsh _(Personaliza o terminal)_
-  - Spectacle _resize window_
-  - google-backup-and-sync _google drive_
-  - dropbox
-  - caffeine _don`t sleep screen_
-  - captin _notify when caps lock change_
-  - 1password
-  - authy
-  - Microsoft Teams
-  - beardedspice _workarround key mapping to spotify_
-  - surfshark _best vpn_
-  - ntfs-3g
+  - [Slack](https://slack.com)
+  - [zsh](https://ohmyz.sh/) _(Personaliza o terminal)_
+  - [Spectacle](https://www.spectacleapp.com/) _Move and resize windows with ease_
+  - [google-backup-and-sync](https://www.google.com/drive/download/) _Google Drive_
+  - [Dropbox](https://dropbox.com/)
+  - [captin](http://captin.mystrikingly.com/) _notify when caps lock change_
+  - [1password 6](https://1password.com/) _password manager_
+  - [Authy](https://authy.com/) _BEST two factor code generator_
+  - [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-365/microsoft-teams/)
+  - [Beardedspice](https://beardedspice.github.io/) _Mac Media Keys for the Masses/workarround key mapping to spotify_
+  - [Surfshark](https://surfshark.com/) _best vpn_
+  - [ntfs-3g](https://www.tuxera.com/community/ntfs-3g-faq/)
 
 ### Notas:
 
 __zsh__:
 
-Se quiser usar outro tema, altere o arquivo `ohmyzsh/zshrc` com o tema desejado [Lista com alguns temas](https://zshthem.es/) e altere o arquivo `install_debian` removendo a linha onde tem o texto __personalizado.zsh-theme__, se não será usado o tema que eu fiz.
+Se quiser usar outro tema, altere o arquivo `ohmyzsh/zshrc` com o tema desejado ([lista com alguns temas](https://zshthem.es/)), removendo a linha onde tem o texto __personalizado.zsh-theme__, se não será usado o tema que eu fiz.
 
 - Plugins:
   - [alias-tips](https://github.com/djui/alias-tips)
