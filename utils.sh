@@ -1,4 +1,5 @@
 #!/bin/bash
+source ./configs.sh
 
 function install_package_with() {
   printf "\n"
