@@ -40,7 +40,6 @@ function install_osX(){
   update_zshrc_config
   install_zsh_plugins
   install_ohmyzsh
-  # install zsh-navigation-tools // Zsh plugins
 
   echo ':: Editors ::'
   install_package_with "cask" visual-studio-code
@@ -51,9 +50,9 @@ function install_osX(){
   echo ':: Programming language and theirs tools ::'
 
   echo ': Python :'
-  install_python_package pip
-  install_python_package setuptools
-  install_python_package virtualenvwrapper
+  install_package_with "pip" pip
+  install_package_with "pip" setuptools
+  install_package_with "pip" virtualenvwrapper
 
   echo ': Node :'
   install_package_with "brew" node

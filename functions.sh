@@ -7,12 +7,6 @@ function install_homebrew(){
   echo "Homebrew instalado com sucesso"
 }
 
-function install_python_package(){
-  echo "Instalando/Atualizando o pacote python < $1 >..."
-  sudo pip install -U $1
-  echo "Pacote python instalado"
-}
-
 function install_ohmyzsh(){
   cd ~
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
@@ -36,7 +30,7 @@ function install_zsh_plugins(){
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_FOLDER/zsh-autosuggestions
 
   mkdir $ZSH_PLUGIN_FOLDER/yarn-autocompletions
-  curl -SL https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v1.2.0/yarn-autocompletions_v1.2.0_macos.zip | tar -xf - -C $ZSH_PLUGIN_FOLDER/yarn-autocompletions
+  curl -SL https://github.com/g-plane/zsh-yarn-autocompletions/releases/download/v2.0.2/yarn-autocompletions_macos-latest.zip | tar -xf - -C $ZSH_PLUGIN_FOLDER/yarn-autocompletions
 
   git clone https://github.com/djui/alias-tips.git $ZSH_PLUGIN_FOLDER/alias-tips
 
@@ -49,10 +43,6 @@ function install_zsh_plugins(){
   git clone https://github.com/lukechilds/zsh-nvm $ZSH_PLUGIN_FOLDER/zsh-nvm
 
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_FOLDER/zsh-syntax-highlighting
-
-  # or
-  # brew install zsh-syntax-highlighting
-  # echo 'source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
 
   git clone https://github.com/zdharma/fast-syntax-highlighting.git $ZSH_PLUGIN_FOLDER/fast-syntax-highlighting
 
@@ -72,12 +62,4 @@ function install_rvm(){
   rvm install 2.1.5
   rvm use 2.1.5 --default
 
-}
-
-function download_tizen_studio(){
-  curl -Lo ~/Downloads/tizen3.7_brazil.dmg http://brazil.sdk-dl.tizen.org/web-ide_Tizen_Studio_3.7_brazil_macos-64.dmg
-}
-
-function download_webos_ide(){
-  curl -Lo ~/Downloads/webos.dmg https://gfts.lge.com/fts/gftsFilePathDownload.lge?key=dlRF00014326&hash=i3L0T9eep6uPX1DQ&mtime=1582617620000
 }

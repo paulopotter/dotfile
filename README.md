@@ -54,6 +54,7 @@ Se quiser usar outro tema, altere o arquivo `ohmyzsh/zshrc` com o tema desejado 
   - [node-env-installer](https://github.com/shiro-saber/node-env-installer)
   - [timer](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/timer)
   - [git](https://github.com/davidde/git)
+  - [yarn-autocompletions](https://github.com/g-plane/zsh-yarn-autocompletions)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [zsh-completions](https://github.com/zsh-users/zsh-completions)
   - [zsh-navigation-tools](https://github.com/psprint/zsh-navigation-tools)
