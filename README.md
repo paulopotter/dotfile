@@ -15,16 +15,16 @@ Antes de usar altere o arquivo **configs.sh**
 ## O que será instalado?
 
 - Editores:
-  - Visual Studio Code
-  - Vim
+  - [Visual Studio Code](https://code.visualstudio.com)
+  - [Vim](https://www.vim.org/)
 
 - Navegadores:
-  - Opera
-  - Google Chrome
+  - [Opera](www.opera.com)
+  - [Google Chrome](www.google.pt/chrome)
 
 - Audio/Video:
-  - Spotify
-  - Vlc
+  - [Spotify](https://www.spotify.com)
+  - [VLC](https://www.videolan.org/vlc/)
 
 - Outros:
   - [Tsuru](http://tsuru.io)
@@ -43,7 +43,7 @@ Antes de usar altere o arquivo **configs.sh**
 
 ### Notas:
 
-__zsh__:
+[__zsh__](https://ohmyz.sh/):
 
 Se quiser usar outro tema, altere o arquivo `ohmyzsh/zshrc` com o tema desejado ([lista com alguns temas](https://zshthem.es/)), removendo a linha onde tem o texto __personalizado.zsh-theme__, se não será usado o tema que eu fiz.
 
