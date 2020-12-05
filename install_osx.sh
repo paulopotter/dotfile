@@ -74,6 +74,7 @@ function install_osX(){
   install_package_with "brew" p7zip
   install_package_with "brew" tree
   install_package_with "brew" unrar
+  install_package_with "brew" ngrok
   brew tap tsuru/homebrew-tsuru
   install_package_with "brew" tsuru
 
@@ -96,6 +97,7 @@ function install_osX(){
   install_package_with "cask" virtualbox
   install_package_with "cask" google-backup-and-sync # Google drive
   install_package_with "cask" slack
+  install_package_with "cask" spotify-now-playing
   install_package_with "cask" microsoft-teams
   install_package_with "cask" spectacle # Resize window
   install_package_with "cask" beardedspice # mac adapter to use media key to control spotify
