@@ -90,6 +90,9 @@ function bump_version() {
   git add package.json
   git commit -m 'chore(package): bump version'
 }
+# add WEBOS CLI
+WEBOS_CLI_TV="/opt/webOS_TV_SDK/CLI/bin"
+export PATH="$WEBOS_CLI_TV:$PATH"
 
 
 export PATH="/usr/local/sbin:$PATH"
