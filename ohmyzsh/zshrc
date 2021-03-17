@@ -21,10 +21,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   alias-tips
   autoupdate
-  fast-syntax-highlighting
   git
+  git-extras
+  git-flow
+  gitfast
   gitgo
-  node-env-installer
   nvm
   osx
   python
@@ -84,6 +85,9 @@ alias findpdb='grep -r "pdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | gr
 alias findipdb='grep -r "ipdb" * | grep -v "#" | cut -d :  -f 1 | sort | uniq | grep ".py$"'
 alias psaux='ps aux | grep -v grep | grep'
 
+function while_true() {
+  while true; do $@; read; clear; done
+}
 
 function bump_version() {
   yarn version --new-version $1 --no-commit-hooks --no-git-tag-version
@@ -103,3 +107,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
