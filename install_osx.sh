@@ -40,6 +40,8 @@ function install_osX(){
   update_zshrc_config
   install_zsh_plugins
   install_ohmyzsh
+  brew tap homebrew/autoupdate
+  brew autoupdate start
 
   echo ':: Editors ::'
   install_package_with "cask" visual-studio-code
