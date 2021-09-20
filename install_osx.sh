@@ -25,6 +25,8 @@ function install_osX(){
   xcode-select --install
   install_package_with "brew" libxml2 # GNOME XML library
   install_package_with "brew" jq # Json beautify
+  install_package_with "brew" libjpeg
+  install_package_with "brew" optipng
 
   # GIT
   echo ':: Git ::'
