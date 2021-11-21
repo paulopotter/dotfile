@@ -27,7 +27,7 @@ plugins=(
   gitfast
   gitgo
   nvm
-  osx
+  macos
   python
   timer
   yarn-autocompletions
