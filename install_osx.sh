@@ -27,6 +27,7 @@ function install_osX(){
   install_package_with "brew" jq # Json beautify
   install_package_with "brew" libjpeg
   install_package_with "brew" optipng
+  install_package_with "cask" fig # fig
 
   # GIT
   echo ':: Git ::'

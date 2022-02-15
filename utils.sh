@@ -16,7 +16,7 @@ function install_package_with() {
 
     elif [[ $1 == "cask" ]]; then
         echo "Instalando < $2 > com brew cask..."
-        brew cask install $2
+        brew install $2 --cask
         echo "< $2 > instalado"
 
     elif [[ $1 == "pip" ]]; then
