@@ -20,7 +20,8 @@ function git_prompt_info() {
 
 function get_package_version() {
    if [[ -f package.json ]]; then
-     echo "📦 $(less package.json | grep version | cut -d '"' -f 4) "
+    #  echo "📦 $(less package.json | grep version | cut -d '"' -f 4) "
+     echo "📦 $(node -pe "require('./package.json').version") "
    fi
 }
 
