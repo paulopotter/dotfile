@@ -15,7 +15,7 @@ function install_ohmyzsh(){
 }
 
 function git_ignore_global(){
-  curl 'https://www.gitignore.io/api/macos,sublimetext,vim,python' --output ~/.gitignore_global
+  curl 'https://www.toptal.com/developers/gitignore/api/macos,git,visualstudiocode,webstorm,vim,python,node' --output ~/.gitignore_global
   git config --global core.excludesfile ~/.gitignore_global
 }
 

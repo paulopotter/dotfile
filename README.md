@@ -11,15 +11,22 @@ Antes de usar altere o arquivo **configs.sh**
 - Altere o arquivo **configs.sh**
 - `./install_osx`
 
-
+<!--
 ## O que será instalado?
+
+alfred
+arc
+ngrok
+whatsapp
+
+- [Stats](https://github.com/exelban/stats) _macOS system monitor in your menu bar_
+<!-- - [tabby](https://tabby.sh/) _New custom terminal_ -- >
 
 - Editores:
   - [Visual Studio Code](https://code.visualstudio.com)
   - [Vim](https://www.vim.org/)
 
 - Navegadores:
-  - [Opera](www.opera.com)
   - [Google Chrome](www.google.pt/chrome)
 
 - Audio/Video:
@@ -30,7 +37,7 @@ Antes de usar altere o arquivo **configs.sh**
   - [Tsuru](http://tsuru.io)
   - [Slack](https://slack.com)
   - [zsh](https://ohmyz.sh/) _(Personaliza o terminal)_
-  - [Spectacle](https://www.spectacleapp.com/) _Move and resize windows with ease_
+  - [Rectangle](https://rectangleapp.com/) _Move and resize windows with ease_
   - [google-backup-and-sync](https://www.google.com/drive/download/) _Google Drive_
   - [Dropbox](https://dropbox.com/)
   - [captin](http://captin.mystrikingly.com/) _notify when caps lock change_
@@ -38,7 +45,7 @@ Antes de usar altere o arquivo **configs.sh**
   - [Authy](https://authy.com/) _BEST two factor code generator_
   - [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-365/microsoft-teams/)
   - [Beardedspice](https://beardedspice.github.io/) _Mac Media Keys for the Masses/workarround key mapping to spotify_
-  - [Surfshark](https://surfshark.com/) _best vpn_
+  <!-- - [Surfshark](https://surfshark.com/) _best vpn_ -- >
   - [ntfs-3g](https://www.tuxera.com/community/ntfs-3g-faq/)
 
 ### Notas:
@@ -57,7 +64,7 @@ Se quiser usar outro tema, altere o arquivo `ohmyzsh/zshrc` com o tema desejado 
   - [yarn-autocompletions](https://github.com/g-plane/zsh-yarn-autocompletions)
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [zsh-completions](https://github.com/zsh-users/zsh-completions)
-  - [zsh-navigation-tools](https://github.com/psprint/zsh-navigation-tools)
+  - [zsh-navigation-tools](https://github.com/psprint/zsh-navigation-tools) -->
 
 __Chave SSH__:
 

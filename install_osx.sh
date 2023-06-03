@@ -37,7 +37,8 @@ function install_osX(){
   git_config
 
   echo ':: Terminal ::'
-  install_package_with "cask" iterm2
+  # install_package_with "cask" iterm2
+  install_package_with "cask" tabby
   install_package_with "brew" zsh
   install_package_with "brew" zsh-completions
   update_zshrc_config
@@ -49,7 +50,9 @@ function install_osX(){
   echo ':: Editors ::'
   install_package_with "cask" visual-studio-code
   install_package_with "brew" editorconfig
-  install_package_with "cask" macdown # Markdown editor
+  install_package_with "cask" jetbrains-toolbox # webstorm
+  install_package_with "cask" notion
+  # install_package_with "cask" macdown # Markdown editor
 
   # Language
   echo ':: Programming language and theirs tools ::'
@@ -62,6 +65,7 @@ function install_osX(){
   echo ': Node :'
   install_package_with "brew" node
   install_package_with "brew" yarn
+  install_package_with "cask" pnpm
   install_nvm
 
   echo ': Ruby :'
@@ -85,30 +89,45 @@ function install_osX(){
   echo '::: Miscelaneous :::'
 
   echo ':: Browsers ::'
+  install_package_with "cask" arc
   install_package_with "cask" google-chrome
-  install_package_with "cask" opera
 
   echo ':: Audio/Video ::'
   install_package_with "cask" spotify
+  install_package_with "cask" beardedspice # mac adapter to use media key to control spotify
   install_package_with "cask" vlc
 
-  echo ':: Others ::'
+  echo ':: Passowrd Manager ::'
   install_package_with "cask" 1password6 # Password Manager
+  install_package_with "cask" bitwarden
   install_package_with "cask" authy     # Authenticator
-  install_package_with "cask" caffeine  # Don`t sleep
-  install_package_with "cask" captin    # caps lock mensage
-  install_package_with "cask" dropbox
-  install_package_with "cask" virtualbox
-  install_package_with "cask" google-backup-and-sync # Google drive
-  install_package_with "cask" slack
-  install_package_with "cask" spotify-now-playing
+
+  echo ':: Message ::'
+  install_package_with "cask" discord
   install_package_with "cask" microsoft-teams
-  install_package_with "cask" spectacle # Resize window
-  install_package_with "cask" beardedspice # mac adapter to use media key to control spotify
-  install_package_with "cask" surfshark # VPN
+  install_package_with "cask" slack
+  install_package_with "cask" whatsapp
+
+  echo ':: Drive ::'
+  install_package_with "cask" dropbox
+  install_package_with "cask" google-drive # Google drive
+
+  echo ':: Drivers to NTFS ::'
   install_package_with "cask" osxfuse # drivers to read NTFS
   install_package_with "brew" ntfs-3g # drivers to read NTFS
+  # install_package_with "cask" paragon-ntfs
 
+  echo ':: Others ::'
+  install_package_with "cask" alfred
+  install_package_with "cask" elgato-stream-deck
+  install_package_with "cask" captin # caps lock mensage
+  install_package_with "cask" virtualbox
+  install_package_with "cask" rectangle # Resize window
+  # install_package_with "cask" surfshark # VPN
+  install_package_with "cask" stats # Mac info
+  install_package_with "cask" steam # gaming
+
+  echo ':: Others / Fonts ::'
   brew tap homebrew/cask-fonts
   install_package_with "brew" font-fira-code # font with ligatures
 
