@@ -1,140 +1,63 @@
 #!/usr/bin/env bash
-source ./utils.sh
-source ./functions.sh
-
-function install_osX(){
-  echo '::: Init :::'
-
-  install_homebrew
-
-  echo 'Execute brew doctor...'
-  brew doctor
-
-  echo 'Execute Brew update'
-  brew update
-
-  echo '::: Finish Init :::'
-
-  # Developement
-  echo '::: Development :::'
-
-  # System
-  echo ':: System ::'
-  install_package_with "brew" wget # Internet file retriever
-  install_package_with "brew" openssl # Cryptography and SSL/TLS Toolkit
-  xcode-select --install
-  install_package_with "brew" libxml2 # GNOME XML library
-  install_package_with "brew" jq # Json beautify
-  install_package_with "brew" libjpeg
-  install_package_with "brew" optipng
-  install_package_with "cask" fig # fig
-
-  # GIT
-  echo ':: Git ::'
-  install_package_with "brew" git
-  install_package_with "brew" git-fresh
-  install_package_with "brew" tig
-  git_config
-
-  echo ':: Terminal ::'
-  # install_package_with "cask" iterm2
-  install_package_with "cask" tabby
-  install_package_with "brew" zsh
-  install_package_with "brew" zsh-completions
-  update_zshrc_config
-  install_zsh_plugins
-  install_ohmyzsh
-  brew tap homebrew/autoupdate
-  brew autoupdate start
-
-  echo ':: Editors ::'
-  install_package_with "cask" visual-studio-code
-  install_package_with "brew" editorconfig
-  install_package_with "cask" jetbrains-toolbox # webstorm
-  install_package_with "cask" notion
-  # install_package_with "cask" macdown # Markdown editor
-
-  # Language
-  echo ':: Programming language and theirs tools ::'
-
-  echo ': Python :'
-  install_package_with "pip" pip
-  install_package_with "pip" setuptools
-  install_package_with "pip" virtualenvwrapper
-
-  echo ': Node :'
-  install_package_with "brew" node
-  install_package_with "brew" yarn
-  install_package_with "cask" pnpm
-  install_nvm
-
-  echo ': Ruby :'
-  install_rvm
-
-  echo '::: Finish Development :::'
 
 
-  echo '::: Config development stack :::'
-
-  install_package_with "brew" ack
-  install_package_with "brew" the_silver_searcher
-  install_package_with "brew" zsh-syntax-highlighting
-  install_package_with "brew" p7zip
-  install_package_with "brew" tree
-  install_package_with "brew" unrar
-  install_package_with "brew" ngrok
-  brew tap tsuru/homebrew-tsuru
-  install_package_with "brew" tsuru
-
-  echo '::: Miscelaneous :::'
-
-  echo ':: Browsers ::'
-  install_package_with "cask" arc
-  install_package_with "cask" google-chrome
-
-  echo ':: Audio/Video ::'
-  install_package_with "cask" spotify
-  install_package_with "cask" beardedspice # mac adapter to use media key to control spotify
-  install_package_with "cask" vlc
-
-  echo ':: Passowrd Manager ::'
-  install_package_with "cask" 1password6 # Password Manager
-  install_package_with "cask" bitwarden
-  install_package_with "cask" authy     # Authenticator
-
-  echo ':: Message ::'
-  install_package_with "cask" discord
-  install_package_with "cask" microsoft-teams
-  install_package_with "cask" slack
-  install_package_with "cask" whatsapp
-
-  echo ':: Drive ::'
-  install_package_with "cask" dropbox
-  install_package_with "cask" google-drive # Google drive
-
-  echo ':: Drivers to NTFS ::'
-  install_package_with "cask" osxfuse # drivers to read NTFS
-  install_package_with "brew" ntfs-3g # drivers to read NTFS
-  # install_package_with "cask" paragon-ntfs
-
-  echo ':: Others ::'
-  install_package_with "cask" alfred
-  install_package_with "cask" elgato-stream-deck
-  install_package_with "cask" captin # caps lock mensage
-  install_package_with "cask" virtualbox
-  install_package_with "cask" rectangle # Resize window
-  # install_package_with "cask" surfshark # VPN
-  install_package_with "cask" stats # Mac info
-  install_package_with "cask" steam # gaming
-
-  echo ':: Others / Fonts ::'
-  brew tap homebrew/cask-fonts
-  install_package_with "brew" font-fira-code # font with ligatures
-
-  echo '::: Finish Miscelaneous :::'
-
-  echo '::::::: Finish :::::::'
-}
+source ./scripts/intel.sh
+source ./scripts/m1.sh
 
 
-install_osX
+NC='\033[0m' # No Color
+# Regular Colors
+BLACK='\033[0;30m'        # Black
+RED='\033[0;31m'          # Red
+GREEN='\033[0;32m'        # Green
+YELLOW='\033[0;33m'       # Yellow
+BLUE='\033[0;34m'         # Blue
+PURPLE='\033[0;35m'       # Purple
+CYAN='\033[0;36m'         # Cyan
+WHITE='\033[0;37m'        # White
+# Bold
+B_BLACK='\033[1;30m'       # Black
+B_RED='\033[1;31m'         # Red
+B_GREEN='\033[1;32m'       # Green
+B_YELLOW='\033[1;33m'      # Yellow
+B_BLUE='\033[1;34m'        # Blue
+B_PURPLE='\033[1;35m'      # Purple
+B_CYAN='\033[1;36m'        # Cyan
+B_WHITE='\033[1;37m'       # White
+
+PROCESSADOR=$( sysctl -n machdep.cpu.brand_string )
+CORE_COUNT=$( sysctl -n machdep.cpu.core_count )
+THREAD_COUNT=$( sysctl -n machdep.cpu.thread_count )
+MEMORY_SIZE=$(( $( sysctl -n hw.memsize ) / 1024 / 1024 / 1024 ))
+GPU_CHIP=$( system_profiler SPDisplaysDataType | grep Chipset )
+
+if [[ $(uname -p) == "i386" ]]; then
+  # Mac Intel
+  echo -e "\n==========================================================\n"
+  echo -e "\t\t${PURPLE}Arquitetura Intel${NC}\n"
+  echo -e "${B_WHITE}Processador: ${B_GREEN}$PROCESSADOR${NC}"
+  echo -e "${B_WHITE}Nucleos: ${B_GREEN}$CORE_COUNT${NC} | ${B_WHITE}Threads: ${B_GREEN}$THREAD_COUNT${NC}"
+  echo -e "${B_WHITE}Memoria: ${B_GREEN}$MEMORY_SIZE GB${NC}${B_CYAN}"
+  echo -e "${GPU_CHIP}${NC}" | sed 's/^[[:blank:]]*//;s/[[:blank:]]*$//'
+
+  echo -e "\n==========================================================\n"
+
+  install_osX_intel
+
+elif [[ $(uname -p) == "m1" ]]; then
+
+  echo -e "\n==========================================================\n"
+  echo -e "\t\t${PURPLE}Arquitetura M1${NC}\n"
+  echo -e "${B_WHITE}Processador: ${B_GREEN}$PROCESSADOR${NC}"
+  echo -e "${B_WHITE}Nucleos: ${B_GREEN}$CORE_COUNT${NC} | ${B_WHITE}Threads: ${B_GREEN}$THREAD_COUNT${NC}"
+  echo -e "${B_WHITE}Memoria: ${B_GREEN}$MEMORY_SIZE GB${NC}${B_CYAN}"
+  echo -e "${GPU_CHIP}${NC}" | sed 's/^[[:blank:]]*//;s/[[:blank:]]*$//'
+
+  echo -e "\n==========================================================\n"
+
+  install_osX_M1
+
+else
+  echo "Arquitetura desconhecida"
+  echo ${uname -p}
+fi
