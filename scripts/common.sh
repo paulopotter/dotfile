@@ -50,6 +50,7 @@ function install_osX_common(){
     install_package_with "brew" node
     install_package_with "brew" yarn
     install_package_with "cask" pnpm
+    npm i -g @antfu/ni
     install_nvm
 
     echo ': Ruby :'
