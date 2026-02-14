@@ -1,3 +1,31 @@
+function install_by_homebrew() {
+  # 1. Verifica se o Brew já está instalado, se não, instala
+  if ! command -v brew &> /dev/null; then
+      echo "Instalando Homebrew..."
+      # NONINTERACTIVE=1 evita que o script peça confirmações extras
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      # Adiciona o brew ao PATH (necessário em Macs com Apple Silicon/M1/M2)
+      if [[ $(uname -m) == "arm64" ]]; then
+          echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
+  else
+      echo "Homebrew já instalado. Pulando..."
+  fi
+
+  # 2. Instala os programas listados no Brewfile
+  if [ -f "Brewfile" ]; then
+      echo "Instalando programas do Brewfile..."
+      brew bundle install --file=Brewfile
+  else
+      echo "Erro: Arquivo Brewfile não encontrado!"
+  fi
+
+  echo "Instalação concluída!"
+
+}
+
 
 function install_homebrew(){
   echo "Instalando homebrew.."
