@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -97,9 +95,14 @@ function bump_version() {
   git commit -m 'chore(package): bump version'
 }
 # add WEBOS CLI
-# WEBOS_CLI_TV="/opt/webOS_TV_SDK/CLI/bin"
+export LG_WEBOS_TV_SDK_HOME="/Users/paulooliveira/webOS_TV_SDK"
 # export PATH="$WEBOS_CLI_TV:$PATH"
-
+if [ -d "$LG_WEBOS_TV_SDK_HOME/CLI/bin" ]; then
+  # Setting the WEBOS_CLI_TV variable to the bin directory of CLI
+  export WEBOS_CLI_TV="$LG_WEBOS_TV_SDK_HOME/CLI/bin"
+  # Adding the bin directory of CLI to the PATH variable
+  export PATH="$PATH:$WEBOS_CLI_TV"
+fi
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -122,5 +125,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+PATH=~/.console-ninja/.bin:$PATH
