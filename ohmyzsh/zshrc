@@ -74,7 +74,9 @@ alias gsu='git submodule update'
 alias gb='git branch -avv'
 
 ### COMMON ###
-alias rede="ifconfig en0 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"
+alias rede_old="ifconfig en0 | grep inet | grep -v inet6 | awk -F' ' '{print \$2}'"
+alias rede="ifconfig en0 | grep inet | grep -v inet6 | awk '{print \$2}'"
+alias rede1="ifconfig en1 | grep inet | grep -v inet6 | awk '{print \$2}'"
 alias la="ls -lah"
 alias descompacta='unrar e'
 alias sizeOffFolder='du -sh'
